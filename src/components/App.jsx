@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Heading from "./Heading";
+import Paragraph from "./Paragraph";
+import Input from "./Input";
 
 const App = () => {
   const [form, setForm] = useState({
@@ -14,27 +17,28 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1>
-        Hello {form.fName} {form.lName}
-      </h1>
-      <p>{form.email}</p>
+      <Heading text={`Hello ${form.fName} ${form.lName}`} />
+      <Paragraph text={form.email} />
       <form>
-        <input
+        <Input
+          type="text"
           onChange={handleChange}
           name="fName"
-          placeholder="First Name"
+          ph="First Name"
           value={form.fName}
         />
-        <input
+        <Input
+          type="text"
           onChange={handleChange}
           name="lName"
-          placeholder="Last Name"
+          ph="Last Name"
           value={form.lName}
         />
-        <input
+        <Input
+          type="email"
           onChange={handleChange}
           name="email"
-          placeholder="Email"
+          ph="Email"
           value={form.email}
         />
       </form>
